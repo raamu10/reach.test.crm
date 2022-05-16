@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route, Link} from 'react-router-dom';
+import {Routes, Route, Link, } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import User from '../../components/user/userDetails';
 import AddUser from '../../components/user/addUser';
@@ -59,7 +59,7 @@ const Home = () => {
                     </Link>
                 </div>
                 <Routes>
-                    <Route path="/" element={<> </>} />
+                    {/* <Route path="/" element={<> </>} /> */}
                     <Route path="/getUser" element={<User />} />
                     <Route path="/addUser" element={<AddUser />} />
                     <Route path="/contacts" element={<Contacts />} />

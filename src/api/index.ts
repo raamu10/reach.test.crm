@@ -9,6 +9,21 @@ const userAuth:any = {
     "password":"test@123"
 };
 
+(() => {
+    console.log("-- before axios intercept")
+    axios.interceptors.response.use(
+        (resp) => {
+            console.log("-- in axios");
+          return resp.data || resp
+        },
+        (err) => {
+          return Promise.reject(err.response ? err.response.data || err.response : err)
+        },
+    )
+
+})()
+
+
 /**
  * @name getUserList
  * @description 
@@ -21,21 +36,7 @@ export function getUserList(payload: any) {
         ...userAuth
     };
 
-    /* var credentials = btoa('test' + ':' + 'test@123');
-    var basicAuth = 'Basic ' + credentials; */
-    return axios.post( `${API_URL}/services/api/fetch_user.php`,
-        payLoadData,
-    {
-        headers: {
-            //Authorization: basicAuth
-            "Content-Type": "application/json",
-            'Access-Control-Allow-Origin' : '*',
-        },
-        /* auth: {
-            username: 'test',
-            password: 'test@123'
-        } */
-    })
+    return axios.post( `${API_URL}/services/api/fetch_user.php`, JSON.stringify(payLoadData));
 }
 
 /**
@@ -48,7 +49,7 @@ export function sendUserContactMessage(payload: any) {
         ...payload,
         ...userAuth
     }
-    return axios.post(`${API_URL}/services/api/sendSmsApi.php`, payLoadData)
+    return axios.post(`${API_URL}/services/api/sendSmsApi.php`, JSON.stringify(payLoadData));
 }
 
 /**
@@ -61,7 +62,7 @@ export function addNewUser(payload: any) {
         ...payload,
         ...userAuth
     };
-    return axios.post(`${API_URL}/services/api/adduser.php`, payLoadData)
+    return axios.post(`${API_URL}/services/api/adduser.php`, JSON.stringify(payLoadData));
 }
 
 export function getContacts(payload: any) {
@@ -69,5 +70,5 @@ export function getContacts(payload: any) {
         ...payload,
         ...userAuth
     };
-    return axios.post(`${API_URL}services/api/fetch_contacts.php`, payLoadData);
+    return axios.post(`${API_URL}/services/api/fetch_contacts.php`, JSON.stringify(payLoadData));
 }

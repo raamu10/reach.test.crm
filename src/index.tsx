@@ -25,7 +25,7 @@ root.render(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename={PUBLIC_URL}>
+    <Router basename="/reach.test.crm">  {/* basename={PUBLIC_URL}> */}
       <App />
     </Router>
   </React.StrictMode>

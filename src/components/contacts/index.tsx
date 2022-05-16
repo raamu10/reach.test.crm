@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table'; 
 import { getContacts } from '../../api';
 
 
 const Contacts = () => {
+
+    const [contactList, setContactList] = useState([]);
 
     useEffect( () => {
         let payload = {
@@ -12,28 +14,16 @@ const Contacts = () => {
             "id":15
         };
 
-        getContacts(payload).then(resp => {
+        getContacts(payload).then((resp: any) => {
             console.log(resp);
+            if (resp) {
+                setContactList(resp);
+            }
         }, error => {
             console.log(error);
         });
 
     }, [])
-
-    const contactList:any = [
-        /* {
-            "ID": "15",
-            "NAME": "yugal",
-            "VALUE": "+919320863928",
-            "TYPE_ID": "PHONE"
-        },
-        {
-            "ID": "15",
-            "NAME": "yugal",
-            "VALUE": "yugal.pandey@nevpro.co.in",
-            "TYPE_ID": "EMAIL"
-        } */
-    ];
 
     return (
         <div className="mt-3 p-3">
@@ -51,7 +41,7 @@ const Contacts = () => {
                 </thead>
                 <tbody>
                     {
-                        contactList.map((item:any, idx:0) => {
+                        contactList.map((item:any, idx:any) => {
                             return(
                                 <tr key={idx}>
                                     <td>{item.ID}</td>
