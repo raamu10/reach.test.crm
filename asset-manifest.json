@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.a570f211.css",
-    "main.js": "./static/js/main.f8f5e35b.js",
-    "static/js/787.b21b9868.chunk.js": "./static/js/787.b21b9868.chunk.js",
-    "index.html": "./index.html",
-    "main.a570f211.css.map": "./static/css/main.a570f211.css.map",
-    "main.f8f5e35b.js.map": "./static/js/main.f8f5e35b.js.map",
-    "787.b21b9868.chunk.js.map": "./static/js/787.b21b9868.chunk.js.map"
+    "main.css": "/reach.test.crm/static/css/main.a570f211.css",
+    "main.js": "/reach.test.crm/static/js/main.cb8080c8.js",
+    "static/js/787.b21b9868.chunk.js": "/reach.test.crm/static/js/787.b21b9868.chunk.js",
+    "index.html": "/reach.test.crm/index.html",
+    "main.a570f211.css.map": "/reach.test.crm/static/css/main.a570f211.css.map",
+    "main.cb8080c8.js.map": "/reach.test.crm/static/js/main.cb8080c8.js.map",
+    "787.b21b9868.chunk.js.map": "/reach.test.crm/static/js/787.b21b9868.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a570f211.css",
-    "static/js/main.f8f5e35b.js"
+    "static/js/main.cb8080c8.js"
   ]
 }
